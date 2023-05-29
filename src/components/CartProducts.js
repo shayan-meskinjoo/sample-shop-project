@@ -2,11 +2,20 @@ import React, { useContext } from "react";
 import { context } from "./Context";
 
 export default function CartProducts(props) {
-  const { id, img, name, price } = props.data;
-  const { cartItems, addToCart, removeFromCart, updatedInput } =
-    useContext(context);
+  const {
+    addToCart,
+    removeFromCart,
+    deleteFromCart,
+    updatedInputAmount,
+    getProduct,
+  } = useContext(context);
 
-  const productAmountPrice = cartItems[id] * price;
+  const id = props.id;
+  const amount = props.amount;
+
+  const product = getProduct(id);
+
+  const { img, name, price } = product;
 
   return (
     <div className="cart-product">
@@ -14,7 +23,7 @@ export default function CartProducts(props) {
       <div className="cart-product__info">
         <h4>{name}</h4>
         <h5>
-          Total: ${productAmountPrice} <p>(${price})</p>
+          Total: ${price * amount} <p>(${price})</p>
         </h5>
         <div className="cart-product__amount">
           <button
@@ -25,14 +34,20 @@ export default function CartProducts(props) {
           </button>
           <input
             className="cart-product__amount--input"
-            value={cartItems[id]}
-            onChange={(e) => updatedInput(e.target.value, id)}
+            value={amount}
+            onChange={(e) => updatedInputAmount(e.target.value, id)}
           ></input>
           <button
             className="cart-product__amount--btn"
             onClick={() => addToCart(id)}
           >
             +
+          </button>
+          <button
+            className="cart-product__amount--del-btn"
+            onClick={() => deleteFromCart(id)}
+          >
+            Delete
           </button>
         </div>
       </div>

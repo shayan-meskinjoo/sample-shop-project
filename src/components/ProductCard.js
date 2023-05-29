@@ -6,9 +6,9 @@ export default function ProductCard(props) {
   const { id, img, name, price } = props.data;
   const searchParams = props.searchParams;
 
-  const { addToCart, cartItems } = useContext(context);
+  const { addToCart, getProductAmount} = useContext(context);
 
-  const cartItemAmount = cartItems[id]
+  const productAmount = getProductAmount(id)
 
   return (
     <div className="product__card">
@@ -18,7 +18,7 @@ export default function ProductCard(props) {
       <h5 className="product__card--name">{name}</h5>
       <p className="product__card--price">${price}</p>
       <button className="product__card--btn" onClick={() => addToCart(id)}>
-        <h6>Add to Cart {cartItemAmount > 0 && <>({cartItemAmount})</>}</h6>
+        <h6>Add to Cart {productAmount > 0 && <>({productAmount})</>}</h6>
       </button>
     </div>
   );

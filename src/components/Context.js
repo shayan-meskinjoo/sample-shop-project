@@ -1,46 +1,91 @@
 import React, { createContext, useState } from "react";
 import { products } from "../products";
 
-export const context = createContext(null);
-
-// const getDefaultCart = () => {
-//   let cart = {};
-//   for (let i = 1; i < products.length + 1; i++) {
-//     cart[i] = 0;
-//   }
-//   return cart;
-// };
-
-const getDefaultCart = () => {
-  let cart = {};
-  const ids = products.map((product) => product.id);
-  for (let i = 0; i < ids.length; i++) {
-    const key = ids[i];
-    cart[key] = 0;
-  }
-  return cart;
-};
+export const context = createContext();
 
 export default function ContextProvider({ children }) {
-  const [cartItems, setCartItems] = useState(getDefaultCart());
+  const [cartProducts, setCartProducts] = useState([]);
 
-  //(prev) => ({ ...prev, [itemId]: prev[itemId] + 1 })
-
-  const addToCart = (itemId) => {
-    setCartItems({ ...cartItems, [itemId]: cartItems[itemId] + 1 });
+  const getProduct = (id) => {
+    const product = products.find((product) => product.id === id);
+    return product;
   };
 
-  const removeFromCart = (itemId) => {
-    setCartItems({ ...cartItems, [itemId]: cartItems[itemId] - 1 });
+  const getProductAmount = (id) => {
+    const amount = cartProducts.find((product) => product.id === id)?.amount;
+    if (amount === undefined) {
+      return -1;
+    }
+    return amount;
   };
 
-  const updatedInput = (newAmount, itemId) => {
-    setCartItems({ ...cartItems, [itemId]: newAmount });
+  const addToCart = (id) => {
+    const amount = getProductAmount(id);
+
+    if (amount === -1) {
+      setCartProducts([
+        ...cartProducts,
+        {
+          id: id,
+          amount: 1,
+        },
+      ]);
+    } else {
+      setCartProducts(
+        cartProducts.map((product) =>
+          product.id === id
+            ? { ...product, amount: product.amount + 1 }
+            : product
+        )
+      );
+    }
+  };
+
+  const removeFromCart = (id) => {
+    setCartProducts(
+      cartProducts.map((product) =>
+        product.id === id ? { ...product, amount: product.amount - 1 } : product
+      )
+    );
+  };
+
+  const deleteFromCart = (id) => {
+    setCartProducts(
+      cartProducts.map((product) =>
+        product.id === id ? { ...product, amount: 0 } : product
+      )
+    );
+  };
+
+  const updatedInputAmount = (inputAmount, id) => {
+    setCartProducts(
+      cartProducts.map((cartItem) =>
+        cartItem.id === id ? { ...cartItem, amount: inputAmount } : cartItem
+      )
+    );
+  };
+
+  const getTotalCost = () => {
+    let totalProductCost = 0;
+    cartProducts.map((cartProduct) => {
+      const productData = getProduct(cartProduct.id);
+      totalProductCost += productData.price * cartProduct.amount;
+    });
+    return totalProductCost;
   };
 
   return (
     <context.Provider
-      value={{ cartItems, addToCart, removeFromCart, updatedInput }}
+      value={{
+        items: cartProducts,
+        getProductAmount,
+        addToCart,
+        removeFromCart,
+        deleteFromCart,
+        updatedInputAmount,
+        getTotalCost,
+        getProduct,
+      }}
     >
       {children}
     </context.Provider>
