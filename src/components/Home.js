@@ -27,9 +27,10 @@ export default function Home() {
       return prevParams;
     });
   }
+
   return (
     <div className="home">
-      <div className="home__filterlinks">
+      <div className="home__filter-btns">
         <button
           onClick={() => searchParamsHandler("type", "hair")}
           className={`home__filter--btn ${

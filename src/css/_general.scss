@@ -1,0 +1,52 @@
+$ff: sans-serif;
+$fs: clamp(0.85rem, 2vw, 1.5rem);
+$fcolor1: #292525ef;
+$body-bg: #eee;
+$brown: #6f4e37;
+$caramel: #fffbce;
+$green: #1b4b43;
+
+@mixin mobile {
+  @media screen and (max-width: 768px) {
+    @content
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $ff;
+  font-size: $fs;
+  color: $fcolor1;
+}
+
+body {
+  min-height: 100vh;
+  background-color: $body-bg;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  max-width: 1200px;
+  min-width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,button {
+  font : inherit;
+}

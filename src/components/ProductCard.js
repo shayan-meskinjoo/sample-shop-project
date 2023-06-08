@@ -13,7 +13,7 @@ export default function ProductCard(props) {
   return (
     <div className="product__card">
       <Link to={`${id}`} state={{ search: `?${searchParams.toString()}` }}>
-        <img src={img} className="product__card-img"></img>
+        <img src={img} className="product__card--img"></img>
       </Link>
       <h5 className="product__card--name">{name}</h5>
       <p className="product__card--price">${price}</p>

@@ -17,10 +17,10 @@ export default function Header() {
         >
           <MenuIconRounded />
         </Link>
-        <h2 className="header__h2">Health care</h2>
+        <h2 className="header__logo">Health care</h2>
       </div>
       
-      <div className={isNavExpand ? "header__nav expand" : "header__nav"}>
+      <div className="header__nav">
         <Link className="header__nav--link" to=".">
           <span className="header__nav--icon">
             <HomeIcon />
@@ -41,22 +41,33 @@ export default function Header() {
           </span>
           <h4>Contact</h4>
         </Link>
-
-        <Link className="header__nav--link">
-          <h4>Sign in</h4>
-        </Link>
       </div>
 
-      <div className="small--screen-icons">
-        <Link to=".">
-          <HomeIcon />
-        </Link>
-        <Link to="cart">
-          <ShoppingCartIcon />
-        </Link>
-        <Link>
-          <MailIcon />
-        </Link>
+      <div className={`header__sidebar ${isNavExpand && "expand"}`}>
+        <Link className="header__sidebar--link" to=".">
+            <span>
+              <HomeIcon />
+            </span>
+            <h4>Home</h4>
+          </Link>
+
+          <Link className="header__sidebar--link" to='cart'>
+            <span>
+              <ShoppingCartIcon />
+            </span>
+            <h4>Cart</h4>
+          </Link>
+
+          <Link className="header__sidebar--link">
+            <span>
+              <MailIcon />
+            </span>
+            <h4>Contact</h4>
+          </Link>
+
+          <Link className="header__sidebar--link">
+            <h4>Sign in</h4>
+          </Link>
       </div>
     </div>
   );
