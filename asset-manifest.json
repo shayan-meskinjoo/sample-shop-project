@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/sample-shop-project/static/css/main.86ed823b.css",
+    "main.js": "/sample-shop-project/static/js/main.e0e6bb3c.js",
+    "static/media/png": "/sample-shop-project/static/media/46d9e7ab870fe72627a1af3f8613895b.da6829c1910d71ba6642.png",
+    "static/media/h1.jpg": "/sample-shop-project/static/media/h1.d19b4098cf589307142d.jpg",
+    "static/media/61ZrPaeTcfL.jpg": "/sample-shop-project/static/media/61ZrPaeTcfL.06a458beb233ea6b23ea.jpg",
+    "static/media/102038207.avif": "/sample-shop-project/static/media/102038207.37fb417fd05f7cddca3d.avif",
+    "static/media/51toBExpbuL._SL1000_.jpg": "/sample-shop-project/static/media/51toBExpbuL._SL1000_.2a5ec5f6dd950c200cf9.jpg",
+    "static/media/51HUJCF63CL._SL1000_.jpg": "/sample-shop-project/static/media/51HUJCF63CL._SL1000_.d39b81593de12c8f87c9.jpg",
+    "static/media/640x640.jpg": "/sample-shop-project/static/media/640x640.ca0c1f28040ee4d0e183.jpg",
+    "static/media/fresh-lotus-youth-preserve-face-cream.jpg": "/sample-shop-project/static/media/fresh-lotus-youth-preserve-face-cream.1dd7fe0ed3848fdd5036.jpg",
+    "static/media/7675715402666_443b8d1a-952a-46dc-b516-3954cf7c0e91.webp": "/sample-shop-project/static/media/7675715402666_443b8d1a-952a-46dc-b516-3954cf7c0e91.88f466d2a1fd115db69a.webp",
+    "static/media/1F_iqeo-4e.webp": "/sample-shop-project/static/media/1F_iqeo-4e.886fb58425232cff68be.webp",
+    "static/media/41qR0HixP7L._SY355_.jpg": "/sample-shop-project/static/media/41qR0HixP7L._SY355_.3995a5edb25e286fab64.jpg",
+    "static/media/genesis-bain-nutri-fortifiant-shampoo-for-hair-fall-lifestyle_11.webp": "/sample-shop-project/static/media/genesis-bain-nutri-fortifiant-shampoo-for-hair-fall-lifestyle_11.396f8f32eeb71916ab65.webp",
+    "index.html": "/sample-shop-project/index.html",
+    "main.86ed823b.css.map": "/sample-shop-project/static/css/main.86ed823b.css.map",
+    "main.e0e6bb3c.js.map": "/sample-shop-project/static/js/main.e0e6bb3c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.86ed823b.css",
+    "static/js/main.e0e6bb3c.js"
+  ]
+}
